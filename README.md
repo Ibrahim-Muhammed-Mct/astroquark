@@ -108,3 +108,7 @@ flowchart TD
 | Embedded integration | After simulation integration, connect one physical IMU or motor-control module through the same measurement or command interface, subject to hardware availability. |
 
 The simulation scope is one route with simplified gravity and contact conditions. Detailed lunar soil, map-based navigation, and a full physical rover are potential extensions.
+
+## Project Status
+
+Development is ongoing.
