@@ -8,6 +8,12 @@ The first mission follows a predefined route in Gazebo Harmonic. It combines whe
 
 ![AstroQuark SolidWorks assembly](cad/AstroQuark_RockerBogie.JPG)
 
+## Demo video
+
+[![AstroQuark climbing the lunar ramp in Gazebo](demo_results/astroquark_demo_preview.png)](AstroQuark_Lunar_Demo.mp4)
+
+[Watch the 30-second demo](AstroQuark_Lunar_Demo.mp4)
+
 ## Prototype status
 
 | Capability | Status |
@@ -28,10 +34,9 @@ python3 scripts/run_astroquark_demo.py
 
 On Windows with those tools installed in WSL, open [AstroQuark Demo.bat](rover_description/AstroQuark%20Demo.bat).
 
-- [Engineering report](docs/AstroQuark_Engineering_Report.pdf)
+- [Engineering report](AstroQuark_Engineering_Report.pdf)
 - [Speed, pitch and distance at 1.8 rad/s](demo_results/astroquark_run.svg)
 
-- [Demo video](docs/AstroQuark_Lunar_Demo.mp4)
 - [Excel run summary](demo_results/AstroQuark_Run_1.8.xlsx)
 - [Recorded telemetry](demo_results/astroquark_run.csv) and [verification](demo_results/verification.json)
 
