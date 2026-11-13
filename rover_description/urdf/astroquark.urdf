@@ -1,0 +1,313 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="astroquark">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.0798636535099553 -0.0114768262127064 0.00923484988753612" rpy="0 0 0" />
+      <mass value="6.43407403537838" />
+      <inertia ixx="0.10177883851113" ixy="0.000415898395885515" ixz="-7.62838966533196E-05" iyy="0.138551196921838" iyz="-1.33315196072833E-08" izz="0.237125704590259" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_rocker">
+    <inertial>
+      <origin xyz="-0.235344696249873 -0.145857299505986 0.0650431519595321" rpy="0 0 0" />
+      <mass value="0.774675013477615" />
+      <inertia ixx="0.00187842604261401" ixy="-0.000209463468284945" ixz="0.000178010779704401" iyy="0.0091478496177103" iyz="-7.42616098883103E-05" izz="0.0104621076008466" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/left_rocker.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/left_rocker.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_rocker_joint" type="revolute">
+    <origin xyz="0.0098391 0.27898 -0.0005697" rpy="1.57080075561 -0.000736428199021 3.14158534559" />
+    <parent link="base_link" />
+    <child link="left_rocker" />
+    <axis xyz="7.30800256314e-06 4.42343270976e-06 0.999999999964" />
+    <limit lower="-0.603036428202" upper="0.396963571798" effort="100" velocity="10" />
+    <dynamics damping="2" friction="0" />
+  </joint>
+  <link name="left_front_wheel">
+    <inertial>
+      <origin xyz="-1.96242260247503E-07 -9.44830066962332E-08 -0.0355971468427495" rpy="0 0 0" />
+      <mass value="1.61075943710073" />
+      <inertia ixx="0.00839724125749004" ixy="-1.47464684510743E-08" ixz="-4.29427497684529E-10" iyy="0.00839726182035625" iyz="-2.08073759177391E-10" izz="0.0154164687052003" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/left_front_wheel.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.03877671808" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.131935968995" length="0.0946809053421" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_front_wheel_joint" type="continuous">
+    <origin xyz="-0.31011 -0.29105 0.062847" rpy="3.14158640179 5.82139912086e-06 -0.276734837554" />
+    <parent link="left_rocker" />
+    <child link="left_front_wheel" />
+    <axis xyz="0 0 -1" />
+  </joint>
+  <link name="left_bogie">
+    <inertial>
+      <origin xyz="-0.0120550475764211 -0.141763693350102 0.06427835990825" rpy="0 0 0" />
+      <mass value="0.853240520794269" />
+      <inertia ixx="0.00626533755099252" ixy="-0.00667160211572711" ixz="0.000257707832435231" iyy="0.0152407015754412" iyz="0.000754714757062369" izz="0.019393594116416" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/left_bogie.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/left_bogie.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_bogie_joint" type="revolute">
+    <origin xyz="0.235 -0.08 0.0011698" rpy="1.92605819908e-06 1.60388668853e-06 -0.00284974046933" />
+    <parent link="left_rocker" />
+    <child link="left_bogie" />
+    <axis xyz="5.69148058231e-06 6.37029882986e-06 0.999999999964" />
+    <limit lower="-0.79447025954" upper="0.20552974046" effort="100" velocity="10" />
+    <dynamics damping="2" friction="0" />
+  </joint>
+  <link name="left_mid_wheel">
+    <inertial>
+      <origin xyz="1.98927141731309E-07 3.07749845745997E-07 0.0505264120424301" rpy="0 0 0" />
+      <mass value="1.61075897434689" />
+      <inertia ixx="0.00839724345932326" ixy="9.58029442918711E-09" ixz="4.37980242869923E-10" iyy="0.00839725837153412" iyz="6.50208456763026E-10" izz="0.0154164672983927" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/left_mid_wheel.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.0473411679268" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.131935968995" length="0.0946809053421" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_mid_wheel_joint" type="continuous">
+    <origin xyz="-0.260000000000001 -0.211999999999998 0.0914890421315087" rpy="-8.29874295074e-06 -2.0259624478e-06 -0.968624290118" />
+    <parent link="left_bogie" />
+    <child link="left_mid_wheel" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="left_rear_wheel">
+    <inertial>
+      <origin xyz="1.58323640864211E-08 2.03275555332727E-07 0.0513923743752575" rpy="0 0 0" />
+      <mass value="1.6107504301174" />
+      <inertia ixx="0.00839720543630145" ixy="-1.62991746495325E-09" ixz="3.85417823924158E-11" iyy="0.00839723557474451" iyz="4.26774309403303E-10" izz="0.0154164064466512" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/left_rear_wheel.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.0482077524066" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.131935968995" length="0.0946809053421" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_rear_wheel_joint" type="continuous">
+    <origin xyz="0.134968263561127 -0.211165272841397 0.0918565882051411" rpy="7.5944087885e-06 -3.91134421341e-06 2.8880123887" />
+    <parent link="left_bogie" />
+    <child link="left_rear_wheel" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="right_rocker">
+    <inertial>
+      <origin xyz="-0.221674282736913 -0.145857453912794 0.0390511454671602" rpy="0 0 0" />
+      <mass value="0.774673307976729" />
+      <inertia ixx="0.00214046624234136" ixy="-0.000320257584523312" ixz="2.80999494874507E-06" iyy="0.00914786176515646" iyz="0.000126035156518177" izz="0.0102000774122569" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/right_rocker.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/right_rocker.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_rocker_joint" type="revolute">
+    <origin xyz="0.0098391 -0.3019 -0.0005747" rpy="1.5708 -0.000660933096227 0" />
+    <parent link="base_link" />
+    <child link="right_rocker" />
+    <axis xyz="0 3.67320510342e-06 0.999999999993" />
+    <limit lower="-0.557672933096" upper="0.442327066904" effort="100" velocity="10" />
+    <dynamics damping="2" friction="0" />
+  </joint>
+  <link name="right_front_wheel">
+    <inertial>
+      <origin xyz="2.51138272955309E-08 2.15434605044251E-07 0.0506393526265455" rpy="0 0 0" />
+      <mass value="1.61075076582923" />
+      <inertia ixx="0.00839720627989655" ixy="-2.36185608991888E-09" ixz="4.96828496095517E-10" iyy="0.00839723727462991" iyz="1.02884228380504E-11" izz="0.015416409200461" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/right_front_wheel.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.0474540963769" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.131935968995" length="0.0946809053421" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_front_wheel_joint" type="continuous">
+    <origin xyz="-0.37025 -0.29105 0.089143" rpy="3.58722941512e-06 -7.90076486887e-07 -2.92480677173" />
+    <parent link="right_rocker" />
+    <child link="right_front_wheel" />
+    <axis xyz="0 0 -1" />
+  </joint>
+  <link name="right_bogie">
+    <inertial>
+      <origin xyz="-0.0120256186532656 -0.141763702724175 0.0642202718096743" rpy="0 0 0" />
+      <mass value="0.853240740573145" />
+      <inertia ixx="0.00626534031863578" ixy="-0.00667185550068293" ixz="0.000258457534373196" iyy="0.0152407022892434" iyz="0.000754711117303428" izz="0.0193935912602559" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/right_bogie.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/right_bogie.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_bogie_joint" type="revolute">
+    <origin xyz="0.235 -0.08 0.0012276" rpy="-5.99907139467e-08 6.51035502255e-07 -0.00277424852927" />
+    <parent link="right_rocker" />
+    <child link="right_bogie" />
+    <axis xyz="-6.61225873035e-07 3.61320025415e-06 0.999999999993" />
+    <limit lower="-0.678225751472" upper="0.321774248528" effort="100" velocity="10" />
+    <dynamics damping="2" friction="0" />
+  </joint>
+  <link name="right_mid_wheel">
+    <inertial>
+      <origin xyz="3.86933780294196E-07 1.76966346049356E-07 0.0505257842856727" rpy="0 0 0" />
+      <mass value="1.61075494295253" />
+      <inertia ixx="0.00839723433982591" ixy="-2.99225978109968E-09" ixz="8.40133882598706E-10" iyy="0.00839723824188238" iyz="3.45032845825033E-10" izz="0.0154164380093169" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/right_mid_wheel.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.0473411679268" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.131935968995" length="0.0946809053421" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_mid_wheel_joint" type="continuous">
+    <origin xyz="-0.259999999999971 -0.211999999999778 0.0914312137195059" rpy="-2.21789025238e-06 -2.92803663915e-06 -0.741533631317" />
+    <parent link="right_bogie" />
+    <child link="right_mid_wheel" />
+    <axis xyz="0 0 -1" />
+  </joint>
+  <link name="right_rear_wheel">
+    <inertial>
+      <origin xyz="-1.7063906482262E-07 1.14313293664292E-07 0.0505768563424628" rpy="0 0 0" />
+      <mass value="1.61075441299494" />
+      <inertia ixx="0.00839721136169701" ixy="-1.22989800609361E-08" ixz="-3.48336167601667E-10" iyy="0.00839725852473709" iyz="2.46589100582443E-10" izz="0.0154164353186415" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="../simulation/astroquark/meshes/right_rear_wheel.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.0473909750581" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.131935968995" length="0.0946809053421" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_rear_wheel_joint" type="continuous">
+    <origin xyz="0.134997285729815 -0.211165272841178 0.0926148929013204" rpy="-3.66573607711e-08 3.67302218476e-06 1.74181649495" />
+    <parent link="right_bogie" />
+    <child link="right_rear_wheel" />
+    <axis xyz="0 0 -1" />
+  </joint>
+</robot>

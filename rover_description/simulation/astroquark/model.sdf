@@ -1,0 +1,511 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.11">
+  <model name="astroquark" canonical_link="base_link">
+    <static>false</static>
+    <link name="base_link">
+      <inertial>
+        <pose>0.0798636535099553 -0.0114768262127064 0.00923484988753612 0 0 0</pose>
+        <mass>6.43407403537838</mass>
+        <inertia>
+          <ixx>0.10177883851113</ixx>
+          <ixy>0.000415898395885515</ixy>
+          <ixz>-7.62838966533196E-05</ixz>
+          <iyy>0.138551196921838</iyy>
+          <iyz>-1.33315196072833E-08</iyz>
+          <izz>0.237125704590259</izz>
+        </inertia>
+      </inertial>
+      <visual name="base_link_visual">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.792156862745098 0.819607843137255 0.933333333333333 1</ambient>
+          <diffuse>0.792156862745098 0.819607843137255 0.933333333333333 1</diffuse>
+        </material>
+      </visual>
+      <collision name="base_link_collision">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <sensor name="rover_imu" type="imu">
+        <always_on>true</always_on>
+        <update_rate>20</update_rate>
+        <topic>/astroquark/imu</topic>
+      </sensor>
+    </link>
+    <link name="left_rocker">
+      <pose relative_to="base_link">0.0098391 0.27898 -0.0005697 1.57080075561 -0.000736428199021 3.14158534559</pose>
+      <inertial>
+        <pose>-0.235344696249873 -0.145857299505986 0.0650431519595321 0 0 0</pose>
+        <mass>0.774675013477615</mass>
+        <inertia>
+          <ixx>0.00187842604261401</ixx>
+          <ixy>-0.000209463468284945</ixy>
+          <ixz>0.000178010779704401</ixz>
+          <iyy>0.0091478496177103</iyy>
+          <iyz>-7.42616098883103E-05</iyz>
+          <izz>0.0104621076008466</izz>
+        </inertia>
+      </inertial>
+      <visual name="left_rocker_visual">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/left_rocker.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+        </material>
+      </visual>
+      <collision name="left_rocker_collision">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/left_rocker.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <link name="left_front_wheel">
+      <pose relative_to="left_rocker">-0.31011 -0.29105 0.062847 3.14158640179 5.82139912086e-06 -0.276734837554</pose>
+      <inertial>
+        <pose>-1.96242260247503E-07 -9.44830066962332E-08 -0.0355971468427495 0 0 0</pose>
+        <mass>1.61075943710073</mass>
+        <inertia>
+          <ixx>0.00839724125749004</ixx>
+          <ixy>-1.47464684510743E-08</ixy>
+          <ixz>-4.29427497684529E-10</ixz>
+          <iyy>0.00839726182035625</iyy>
+          <iyz>-2.08073759177391E-10</iyz>
+          <izz>0.0154164687052003</izz>
+        </inertia>
+      </inertial>
+      <visual name="left_front_wheel_visual">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/left_front_wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.250980392156863 0.250980392156863 0.250980392156863 1</ambient>
+          <diffuse>0.250980392156863 0.250980392156863 0.250980392156863 1</diffuse>
+        </material>
+      </visual>
+      <collision name="left_front_wheel_collision">
+        <pose>0 0 -0.03877671808 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.131935968995</radius>
+            <length>0.0946809053421</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+    <link name="left_bogie">
+      <pose relative_to="left_rocker">0.235 -0.08 0.0011698 1.92605819908e-06 1.60388668853e-06 -0.00284974046933</pose>
+      <inertial>
+        <pose>-0.0120550475764211 -0.141763693350102 0.06427835990825 0 0 0</pose>
+        <mass>0.853240520794269</mass>
+        <inertia>
+          <ixx>0.00626533755099252</ixx>
+          <ixy>-0.00667160211572711</ixy>
+          <ixz>0.000257707832435231</ixz>
+          <iyy>0.0152407015754412</iyy>
+          <iyz>0.000754714757062369</iyz>
+          <izz>0.019393594116416</izz>
+        </inertia>
+      </inertial>
+      <visual name="left_bogie_visual">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/left_bogie.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+        </material>
+      </visual>
+      <collision name="left_bogie_collision">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/left_bogie.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <link name="left_mid_wheel">
+      <pose relative_to="left_bogie">-0.260000000000001 -0.211999999999998 0.0914890421315087 -8.29874295074e-06 -2.0259624478e-06 -0.968624290118</pose>
+      <inertial>
+        <pose>1.98927141731309E-07 3.07749845745997E-07 0.0505264120424301 0 0 0</pose>
+        <mass>1.61075897434689</mass>
+        <inertia>
+          <ixx>0.00839724345932326</ixx>
+          <ixy>9.58029442918711E-09</ixy>
+          <ixz>4.37980242869923E-10</ixz>
+          <iyy>0.00839725837153412</iyy>
+          <iyz>6.50208456763026E-10</iyz>
+          <izz>0.0154164672983927</izz>
+        </inertia>
+      </inertial>
+      <visual name="left_mid_wheel_visual">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/left_mid_wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.250980392156863 0.250980392156863 0.250980392156863 1</ambient>
+          <diffuse>0.250980392156863 0.250980392156863 0.250980392156863 1</diffuse>
+        </material>
+      </visual>
+      <collision name="left_mid_wheel_collision">
+        <pose>0 0 0.0473411679268 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.131935968995</radius>
+            <length>0.0946809053421</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+    <link name="left_rear_wheel">
+      <pose relative_to="left_bogie">0.134968263561127 -0.211165272841397 0.0918565882051411 7.5944087885e-06 -3.91134421341e-06 2.8880123887</pose>
+      <inertial>
+        <pose>1.58323640864211E-08 2.03275555332727E-07 0.0513923743752575 0 0 0</pose>
+        <mass>1.6107504301174</mass>
+        <inertia>
+          <ixx>0.00839720543630145</ixx>
+          <ixy>-1.62991746495325E-09</ixy>
+          <ixz>3.85417823924158E-11</ixz>
+          <iyy>0.00839723557474451</iyy>
+          <iyz>4.26774309403303E-10</iyz>
+          <izz>0.0154164064466512</izz>
+        </inertia>
+      </inertial>
+      <visual name="left_rear_wheel_visual">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/left_rear_wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.250980392156863 0.250980392156863 0.250980392156863 1</ambient>
+          <diffuse>0.250980392156863 0.250980392156863 0.250980392156863 1</diffuse>
+        </material>
+      </visual>
+      <collision name="left_rear_wheel_collision">
+        <pose>0 0 0.0482077524066 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.131935968995</radius>
+            <length>0.0946809053421</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+    <link name="right_rocker">
+      <pose relative_to="base_link">0.0098391 -0.3019 -0.0005747 1.5708 -0.000660933096227 0</pose>
+      <inertial>
+        <pose>-0.221674282736913 -0.145857453912794 0.0390511454671602 0 0 0</pose>
+        <mass>0.774673307976729</mass>
+        <inertia>
+          <ixx>0.00214046624234136</ixx>
+          <ixy>-0.000320257584523312</ixy>
+          <ixz>2.80999494874507E-06</ixz>
+          <iyy>0.00914786176515646</iyy>
+          <iyz>0.000126035156518177</iyz>
+          <izz>0.0102000774122569</izz>
+        </inertia>
+      </inertial>
+      <visual name="right_rocker_visual">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/right_rocker.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+        </material>
+      </visual>
+      <collision name="right_rocker_collision">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/right_rocker.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <link name="right_front_wheel">
+      <pose relative_to="right_rocker">-0.37025 -0.29105 0.089143 3.58722941512e-06 -7.90076486887e-07 -2.92480677173</pose>
+      <inertial>
+        <pose>2.51138272955309E-08 2.15434605044251E-07 0.0506393526265455 0 0 0</pose>
+        <mass>1.61075076582923</mass>
+        <inertia>
+          <ixx>0.00839720627989655</ixx>
+          <ixy>-2.36185608991888E-09</ixy>
+          <ixz>4.96828496095517E-10</ixz>
+          <iyy>0.00839723727462991</iyy>
+          <iyz>1.02884228380504E-11</iyz>
+          <izz>0.015416409200461</izz>
+        </inertia>
+      </inertial>
+      <visual name="right_front_wheel_visual">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/right_front_wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.250980392156863 0.250980392156863 0.250980392156863 1</ambient>
+          <diffuse>0.250980392156863 0.250980392156863 0.250980392156863 1</diffuse>
+        </material>
+      </visual>
+      <collision name="right_front_wheel_collision">
+        <pose>0 0 0.0474540963769 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.131935968995</radius>
+            <length>0.0946809053421</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+    <link name="right_bogie">
+      <pose relative_to="right_rocker">0.235 -0.08 0.0012276 -5.99907139467e-08 6.51035502255e-07 -0.00277424852927</pose>
+      <inertial>
+        <pose>-0.0120256186532656 -0.141763702724175 0.0642202718096743 0 0 0</pose>
+        <mass>0.853240740573145</mass>
+        <inertia>
+          <ixx>0.00626534031863578</ixx>
+          <ixy>-0.00667185550068293</ixy>
+          <ixz>0.000258457534373196</ixz>
+          <iyy>0.0152407022892434</iyy>
+          <iyz>0.000754711117303428</iyz>
+          <izz>0.0193935912602559</izz>
+        </inertia>
+      </inertial>
+      <visual name="right_bogie_visual">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/right_bogie.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+        </material>
+      </visual>
+      <collision name="right_bogie_collision">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/right_bogie.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <link name="right_mid_wheel">
+      <pose relative_to="right_bogie">-0.259999999999971 -0.211999999999778 0.0914312137195059 -2.21789025238e-06 -2.92803663915e-06 -0.741533631317</pose>
+      <inertial>
+        <pose>3.86933780294196E-07 1.76966346049356E-07 0.0505257842856727 0 0 0</pose>
+        <mass>1.61075494295253</mass>
+        <inertia>
+          <ixx>0.00839723433982591</ixx>
+          <ixy>-2.99225978109968E-09</ixy>
+          <ixz>8.40133882598706E-10</ixz>
+          <iyy>0.00839723824188238</iyy>
+          <iyz>3.45032845825033E-10</iyz>
+          <izz>0.0154164380093169</izz>
+        </inertia>
+      </inertial>
+      <visual name="right_mid_wheel_visual">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/right_mid_wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.250980392156863 0.250980392156863 0.250980392156863 1</ambient>
+          <diffuse>0.250980392156863 0.250980392156863 0.250980392156863 1</diffuse>
+        </material>
+      </visual>
+      <collision name="right_mid_wheel_collision">
+        <pose>0 0 0.0473411679268 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.131935968995</radius>
+            <length>0.0946809053421</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+    <link name="right_rear_wheel">
+      <pose relative_to="right_bogie">0.134997285729815 -0.211165272841178 0.0926148929013204 -3.66573607711e-08 3.67302218476e-06 1.74181649495</pose>
+      <inertial>
+        <pose>-1.7063906482262E-07 1.14313293664292E-07 0.0505768563424628 0 0 0</pose>
+        <mass>1.61075441299494</mass>
+        <inertia>
+          <ixx>0.00839721136169701</ixx>
+          <ixy>-1.22989800609361E-08</ixy>
+          <ixz>-3.48336167601667E-10</ixz>
+          <iyy>0.00839725852473709</iyy>
+          <iyz>2.46589100582443E-10</iyz>
+          <izz>0.0154164353186415</izz>
+        </inertia>
+      </inertial>
+      <visual name="right_rear_wheel_visual">
+        <geometry>
+          <mesh>
+            <uri>model://astroquark/meshes/right_rear_wheel.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.250980392156863 0.250980392156863 0.250980392156863 1</ambient>
+          <diffuse>0.250980392156863 0.250980392156863 0.250980392156863 1</diffuse>
+        </material>
+      </visual>
+      <collision name="right_rear_wheel_collision">
+        <pose>0 0 0.0473909750581 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.131935968995</radius>
+            <length>0.0946809053421</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="left_rocker_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>left_rocker</child>
+      <axis>
+        <xyz>7.30800256314e-06 4.42343270976e-06 0.999999999964</xyz>
+        <dynamics>
+          <damping>2</damping>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>180.0</spring_stiffness>
+        </dynamics>
+        <limit>
+          <lower>-0.603036428202</lower>
+          <upper>0.396963571798</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <joint name="left_front_wheel_joint" type="revolute">
+      <parent>left_rocker</parent>
+      <child>left_front_wheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+      </axis>
+    </joint>
+    <joint name="left_bogie_joint" type="revolute">
+      <parent>left_rocker</parent>
+      <child>left_bogie</child>
+      <axis>
+        <xyz>5.69148058231e-06 6.37029882986e-06 0.999999999964</xyz>
+        <dynamics>
+          <damping>2</damping>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>36.0</spring_stiffness>
+        </dynamics>
+        <limit>
+          <lower>-0.79447025954</lower>
+          <upper>0.20552974046</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <joint name="left_mid_wheel_joint" type="revolute">
+      <parent>left_bogie</parent>
+      <child>left_mid_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <joint name="left_rear_wheel_joint" type="revolute">
+      <parent>left_bogie</parent>
+      <child>left_rear_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    <joint name="right_rocker_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>right_rocker</child>
+      <axis>
+        <xyz>0 3.67320510342e-06 0.999999999993</xyz>
+        <dynamics>
+          <damping>2</damping>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>180.0</spring_stiffness>
+        </dynamics>
+        <limit>
+          <lower>-0.557672933096</lower>
+          <upper>0.442327066904</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <joint name="right_front_wheel_joint" type="revolute">
+      <parent>right_rocker</parent>
+      <child>right_front_wheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+      </axis>
+    </joint>
+    <joint name="right_bogie_joint" type="revolute">
+      <parent>right_rocker</parent>
+      <child>right_bogie</child>
+      <axis>
+        <xyz>-6.61225873035e-07 3.61320025415e-06 0.999999999993</xyz>
+        <dynamics>
+          <damping>2</damping>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>36.0</spring_stiffness>
+        </dynamics>
+        <limit>
+          <lower>-0.678225751472</lower>
+          <upper>0.321774248528</upper>
+          <effort>100</effort>
+          <velocity>10</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <joint name="right_mid_wheel_joint" type="revolute">
+      <parent>right_bogie</parent>
+      <child>right_mid_wheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+      </axis>
+    </joint>
+    <joint name="right_rear_wheel_joint" type="revolute">
+      <parent>right_bogie</parent>
+      <child>right_rear_wheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+      </axis>
+    </joint>
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher" />
+<plugin filename="gz-sim-joint-controller-system"
+        name="gz::sim::systems::JointController">
+  <joint_name>left_front_wheel_joint</joint_name>
+  <joint_name>left_mid_wheel_joint</joint_name>
+  <joint_name>left_rear_wheel_joint</joint_name>
+  <joint_name>right_front_wheel_joint</joint_name>
+  <joint_name>right_mid_wheel_joint</joint_name>
+  <joint_name>right_rear_wheel_joint</joint_name>
+  <topic>/astroquark/wheel_velocity</topic>
+  <initial_velocity>0</initial_velocity>
+</plugin>
+  </model>
+</sdf>

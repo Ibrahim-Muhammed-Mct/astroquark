@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "criteria": {
+    "ramp_start_x_m": 1.65,
+    "ramp_end_x_m": 4.126,
+    "finish_x_m": 5.25,
+    "max_sample_gap_s": 0.3,
+    "minimum_rise_m": 0.22,
+    "ramp_pitch_range_deg": [
+      4.0,
+      14.0
+    ],
+    "settle_window_s": 0.8,
+    "max_stop_speed_m_s": 0.02,
+    "max_stop_wheel_rad_s": 0.15,
+    "max_distance_error_pct": 12.0
+  },
+  "runs": [
+    {
+      "csv": "astroquark_run.csv",
+      "passed": true,
+      "checks": {
+        "sampling": true,
+        "ramp_crossing": true,
+        "nose_up_pitch": true,
+        "goal_reached": true,
+        "settled_stop": true,
+        "distance_agreement": true
+      },
+      "metrics": {
+        "sample_count": 291,
+        "duration_s": 29.0,
+        "max_sample_gap_s": 0.10000000000000142,
+        "ramp_start_s": 7.6,
+        "ramp_end_s": 20.8,
+        "goal_s": 27.5,
+        "final_x_m": 5.26685751,
+        "rise_m": 0.34793281,
+        "peak_ramp_pitch_deg": 7.88587865,
+        "peak_measured_speed_m_s": 0.35622712,
+        "max_settled_speed_m_s": 0.0,
+        "max_settled_wheel_rad_s": 0.0,
+        "measured_distance_m": 5.28892536,
+        "estimated_distance_m": 5.31490857,
+        "distance_gap_m": 0.0259832099999997,
+        "absolute_distance_error_pct": 0.49127579293347595
+      }
+    }
+  ],
+  "comparison": {
+    "passing_runs": 1,
+    "total_runs": 1
+  }
+}
