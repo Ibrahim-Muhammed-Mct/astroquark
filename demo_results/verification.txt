@@ -1,0 +1,10 @@
+Sampling             PASS
+Ramp crossing        PASS
+Nose-up pitch        PASS
+Goal reached         PASS
+Settled stop         PASS
+Distance agreement   PASS
+
+Samples: 291 | Final x: 5.267 m | Final speed: 0.000 m/s
+Measured distance: 5.289 m | Estimated distance: 5.315 m
+Overall: PASS

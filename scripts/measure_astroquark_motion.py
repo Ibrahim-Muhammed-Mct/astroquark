@@ -2,10 +2,11 @@ import csv
 import math
 import re
 import subprocess
-import sys
 import time
 from datetime import datetime
 from pathlib import Path
+
+from native_tools import compiled_tool
 
 
 def read_rover_position():
@@ -36,10 +37,9 @@ def read_rover_position():
 
 
 def measure_displacement():
-    x_start, y_start, _ = read_rover_position()
-
-    drive_script = Path(__file__).resolve().with_name("drive_astroquark.py")
-    subprocess.run([sys.executable, str(drive_script)], check=True)
+    with compiled_tool("drive_astroquark") as driver:
+        x_start, y_start, _ = read_rover_position()
+        subprocess.run([driver], check=True)
 
     time.sleep(1)  # Give the rover time to settle after the stop command.
     x_end, y_end, _ = read_rover_position()

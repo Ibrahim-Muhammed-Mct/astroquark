@@ -8,6 +8,8 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+from native_tools import compiled_tool
+
 SCRIPTS = Path(__file__).resolve().parent
 PROJECT = SCRIPTS.parent
 RAMP_START_X = 1.65
@@ -102,10 +104,18 @@ def main():
             [sys.executable, str(SCRIPTS / "plot_astroquark_demo.py"), str(data),
              "--ramp-start-x", str(RAMP_START_X)], check=True,
         )
-        subprocess.run(
-            [sys.executable, str(SCRIPTS / "verify_astroquark_demo.py"), str(data),
-             "--output", str(output / "verification.json")], check=True,
-        )
+        report = output / "verification.txt"
+        with compiled_tool("verify_astroquark_demo") as verifier:
+            result = subprocess.run(
+                [verifier, str(data)], capture_output=True, text=True, encoding="utf-8",
+                errors="replace",
+            )
+        report.write_text(result.stdout + result.stderr, encoding="utf-8")
+        print(result.stdout, end="", flush=True)
+        if result.stderr:
+            print(result.stderr, end="", file=sys.stderr, flush=True)
+        print(f"Verification report: {report}", flush=True)
+        result.check_returncode()
         if not args.headless and processes[0].poll() is None:
             print("Experiment saved. Close Gazebo or press Ctrl+C to finish.", flush=True)
             processes[0].wait()

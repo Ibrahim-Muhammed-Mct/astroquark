@@ -19,13 +19,14 @@ The first mission follows a predefined route in Gazebo Harmonic. It combines whe
 | Capability | Status |
 | --- | --- |
 | Mechanical model | A CAD assembly runs in Gazebo as URDF/SDF. Wheel joint axes and collision geometry were refined, and all six wheels supported the rover on flat terrain. |
-| Drive and stop | A Python script sends a wheel-speed command and then a stop command through Gazebo Transport. |
+| Drive and stop | A C program sends wheel-speed and stop commands through Gazebo Transport in the flat-ground experiment. |
 | Motion measurement | Python reads the rover’s position before and after a drive, calculates horizontal displacement, and records it in CSV. |
 | Integrated demo | ROS 2 connects wheel commands, joint readings, the body IMU and Gazebo pose. AstroQuark climbs a lunar ramp, slows near the goal and stops automatically. |
+| Run verification | A C program checks the recorded telemetry for sampling, ramp crossing, pitch, goal arrival, stopping, and distance agreement. |
 
 ## Run the demo
 
-From Ubuntu 24.04 with ROS 2 Jazzy, Gazebo Harmonic and `ros_gz_bridge` installed, run these commands from the project root:
+From Ubuntu 24.04 (native or WSL) with Python 3, GCC, ROS 2 Jazzy, Gazebo Harmonic, and `ros_gz_bridge` installed, run these commands from the project root:
 
 ```bash
 source /opt/ros/jazzy/setup.bash
@@ -34,11 +35,15 @@ python3 scripts/run_astroquark_demo.py
 
 On Windows with those tools installed in WSL, open [AstroQuark Demo.bat](rover_description/AstroQuark%20Demo.bat).
 
+Python orchestrates the run, records ROS 2 telemetry, calculates speed and distance, and generates the plots. The runner builds [the C verifier](scripts/verify_astroquark_demo.c) with GCC and saves its report as `verification.txt` in the run directory.
+
+For a standalone flat-ground measurement, start [the flat-ground world](rover_description/AstroQuark%20Flat%20Ground.bat) and run `python3 scripts/measure_astroquark_motion.py` from the project root in Ubuntu. The script builds and calls [the C driver](scripts/drive_astroquark.c), then calculates displacement and saves it to CSV.
+
 - [Engineering report](AstroQuark_Engineering_Report.pdf)
 - [Speed, pitch and distance at 1.8 rad/s](demo_results/astroquark_run.svg)
 
 - [Excel run summary](demo_results/AstroQuark_Run_1.8.xlsx)
-- [Recorded telemetry](demo_results/astroquark_run.csv) and [verification](demo_results/verification.json)
+- [Recorded telemetry](demo_results/astroquark_run.csv), [C verification of the recorded run](demo_results/verification.txt), and [original JSON verification](demo_results/verification.json)
 
 ## Target system architecture
 
@@ -112,3 +117,7 @@ The simulation scope is one route with simplified gravity and contact conditions
 ## Project Status
 
 Development is ongoing.
+
+## AI assistance
+
+I used AI assistance to organize the repository, develop parts of the simulation tooling, and improve the documentation.
